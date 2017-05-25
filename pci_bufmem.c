@@ -7,7 +7,6 @@
 
 /*#define VENDOR_ID 0x1172
 #define DEVICE_ID 0xe001*/
-
 static int dev_open (struct inode *, struct file *);
 static int dev_close (struct inode *, struct file *);
 static ssize_t dev_read (struct file *, char *, size_t, loff_t *);
@@ -26,7 +25,6 @@ MODULE_VERSION("1");
 
 int major = 60;
 
-
 struct pci_dev *pdev;
 
 struct priv_data {
@@ -37,7 +35,6 @@ struct priv_data {
 static unsigned char get_revision(struct pci_dev *dev)
 {
 	u8 revision;
-
 	pci_read_config_byte(dev, PCI_REVISION_ID, &revision);
 	return revision;
 }
@@ -85,7 +82,6 @@ static int dev_open (struct inode *inode, struct file *filp)
   return (0);
 }
 
-
 static int dev_close (struct inode *inode, struct file *filp)
 {
   struct priv_data *pd = filp->private_data;
@@ -109,12 +105,10 @@ static ssize_t dev_read (struct file * filp, char *buff, size_t count, loff_t * 
   
 }
 
-
 static ssize_t dev_write (struct file * filp, __user const char *buff, size_t count, loff_t * ppos)
 {
   // read from user space
   unsigned long ul;
-
   struct priv_data *pd = filp->private_data;
     printk("Write count=0x%08lx\n",count);
   // copy_from_user returns bytes _not_ write
@@ -172,7 +166,6 @@ static int __init pci_init(void)
 	return rc;
 }
 	
-
 static void __exit pci_exit(void)
 {
 	printk("exit\n");
