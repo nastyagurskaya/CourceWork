@@ -1,0 +1,1 @@
+cmd_/home/nastya/Desktop/CourseWork/pci_bufmem.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/nastya/Desktop/CourseWork/pci_bufmem.ko /home/nastya/Desktop/CourseWork/pci_bufmem.o /home/nastya/Desktop/CourseWork/pci_bufmem.mod.o
