@@ -66,7 +66,7 @@ static void pci_remove(struct pci_dev *dev)
 
 static int dev_open (struct inode *inode, struct file *filp)
 {
-  struct priv_data *pd = kmalloc(sizeof(struct priv_data),GFP_KERNEL);
+  struct priv_data *pd = kmalloc(sizeof(struct priv_data),GFP_DMA);
   void *vaddr;
   dma_addr_t dma_handle;
   
